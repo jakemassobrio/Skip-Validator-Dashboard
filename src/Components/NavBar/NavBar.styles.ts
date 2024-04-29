@@ -4,7 +4,7 @@ export const NavbarBody = styled.div`
   padding: 0 100px;
   width: calc(100% - 200px);
   height: 64px;
-  background-color: ${(props) => props.theme.background.secondary};
+  background-color: ${(props) => props.theme.background.tertiary};
   display: flex;
   justify-content: space-between;
 `;

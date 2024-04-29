@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "./Components/NavBar";
-import Tabs from "./Components/Tabs/Tabs";
+import Tabs from "./Components/Tabs";
 import { AppBody, AppDashboardTabs, AppWrapper } from "./App.styles";
 import {
   DASHBOARD_OPTIONS,
@@ -9,13 +9,13 @@ import {
   darkTheme,
   lightTheme,
 } from "./constants";
-import Table from "./Components/Table/Table";
+import Table from "./Components/Table";
 
 import { useValidatorsAPI } from "./utils";
 import { ThemeProvider } from "@emotion/react";
 
 import { osmosisMockData } from "./fixtures";
-import SearchBar from "./Components/SearchBar/SearchBar";
+import SearchBar from "./Components/SearchBar";
 
 function App() {
   const validators = useValidatorsAPI();

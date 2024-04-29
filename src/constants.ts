@@ -106,8 +106,8 @@ export const darkTheme: Theme = {
   },
   background: {
     primary: "#151617",
-    secondary: "#121213",
-    tertiary: "#f3f6f808",
+    secondary: "#121213fc",
+    tertiary: "#121213",
   },
   border: {
     primary: "#f3f6f81a",
