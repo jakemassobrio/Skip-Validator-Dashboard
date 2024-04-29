@@ -14,6 +14,8 @@ import {
   TableNameHeader,
   TableNumberHeader,
 } from "./Table.styles";
+import SearchBar from "../SearchBar";
+import Box from "../Box";
 
 export default function Table({
   title,
@@ -62,7 +64,10 @@ export default function Table({
 
   return (
     <>
-      <TableTitle>{title}</TableTitle>
+      <Box display="flex" justify="space-between" alignItems="center">
+        <TableTitle>{title}</TableTitle>
+        <SearchBar placeholder="Filter" onSubmit={() => {}} />
+      </Box>
       <TableBase>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (

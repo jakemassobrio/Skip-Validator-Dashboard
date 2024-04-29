@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
 import NavBar from "./NavBar";
 
 const meta = {
@@ -9,9 +8,6 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
   decorators: [
     (Story) => (
       <div style={{ width: "80vw" }}>

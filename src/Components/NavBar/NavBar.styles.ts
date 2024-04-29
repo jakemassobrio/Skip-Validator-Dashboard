@@ -4,7 +4,7 @@ export const NavbarBody = styled.div`
   padding: 0 100px;
   width: calc(100% - 200px);
   height: 64px;
-  background-color: #121213;
+  background-color: ${(props) => props.theme.background.secondary};
   display: flex;
   justify-content: space-between;
 `;
@@ -19,13 +19,17 @@ export const NavbarBrand = styled.p`
   color: #ffffff;
 `;
 
-export const NavbarNavOption = styled.span`
+export const NavbarNavOption = styled.a`
   padding: 6px 10px;
   margin: auto 0px;
-  color: #f3f6f8b2;
+  color: ${(props) => props.theme.text.secondary};
   font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 20px;
   text-align: center;
+  text-decoration: none;
+  &:hover {
+    color: #ffffff;
+  }
 `;

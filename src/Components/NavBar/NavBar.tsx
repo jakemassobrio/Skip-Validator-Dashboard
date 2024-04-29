@@ -1,6 +1,7 @@
 import React from "react";
-import MenuButton from "../MenuButton/MenuButton";
+import Button from "../Button";
 import { NavbarBody, NavbarBrand, NavbarNavOption } from "./NavBar.styles";
+import Icon from "../Icon";
 
 enum NavOptions {
   Home = "Home",
@@ -8,6 +9,18 @@ enum NavOptions {
   Careers = "Careers",
   Contact = "Contact",
 }
+
+interface URLS {
+  [key: string]: string;
+}
+
+const urls: URLS = {
+  home: "https://skip.money/",
+  github: "https://github.com/skip-mev",
+  careers:
+    "https://skip-protocol.notion.site/Skip-Protocol-Open-Positions-a80c9cd99f2247118f89706f07fb563a/",
+  contact: "https://ideas.skip.money/",
+};
 
 export default function NavBar() {
   return (
@@ -32,16 +45,26 @@ export default function NavBar() {
           }}
         >
           {Object.keys(NavOptions).map((name) => (
-            <NavOption name={name} />
+            <NavOption name={name} url={urls[name.toLowerCase()]} />
           ))}
         </div>
-        <MenuButton name="Sign Up"></MenuButton>
-        <MenuButton name="Connect Wallet"></MenuButton>
+        <Button
+          variant="primary"
+          name="Sign Up"
+          rightIcon={<Icon icon={"arrow_drop_down"} color={"#151617E5"} />}
+        />
+        <Button
+          variant="secondary"
+          name="Connect Wallet"
+          rightIcon={<Icon icon={"arrow_drop_down"} color={"#151617E5"} />}
+        />
       </div>
     </NavbarBody>
   );
 }
 
-const NavOption = ({ name }: { name: string }) => (
-  <NavbarNavOption>{name}</NavbarNavOption>
+const NavOption = ({ name, url }: { name: string; url: string }) => (
+  <NavbarNavOption href={url} target="_blank">
+    {name}
+  </NavbarNavOption>
 );

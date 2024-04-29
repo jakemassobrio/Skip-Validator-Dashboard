@@ -10,7 +10,15 @@ export const TabsContainer = styled.div`
   opacity: 0px;
 `;
 
-export const TabOption = styled.div`
-  color: #d9d9d9;
+export const TabOption = styled.a`
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  color: #ffffffb2;
   padding: 6px 10px 6px 0px;
+  &:hover {
+    color: #d9d9d9;
+  }
 `;

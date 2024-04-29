@@ -8,14 +8,16 @@ export const AppWrapper = styled.div`
 export const AppDashboardTabs = styled.div`
   display: flex;
   align-content: center;
-  background-color: #121213;
+  align-items: center;
+  justify-content: space-between;
+  background-color: ${(props) => props.theme.background.secondary};
   height: 64px;
   padding: 0 100px;
   width: calc(100% - 200px);
 `;
 
 export const AppBody = styled.div`
-  background-color: #151617;
+  background-color: ${(props) => props.theme.background.primary};
   padding: 0 100px;
   width: calc(100% - 200px);
   height: calc(100% - 128px);

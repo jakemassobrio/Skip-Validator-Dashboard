@@ -2,17 +2,27 @@ import React from "react";
 
 import Icon from "../Icon/Icon";
 
+import { SearchBox, SearchInput } from "./SearchBar.styles";
+import { useTheme } from "@emotion/react";
+
 interface SearchBar {
+  placeholder?: string;
   onSubmit: () => null | void;
 }
 
-export default function SearchBar({ onSubmit }: SearchBar) {
+export default function SearchBar({ onSubmit, placeholder }: SearchBar) {
+  const theme = useTheme();
+
   return (
     <form onSubmit={onSubmit}>
-      <input type="text" placeholder="Search.." name="search" />
-      <button type="submit">
-        <Icon icon={"search"} color={"#151617E5"} />
-      </button>
+      <SearchBox>
+        <Icon icon={"search"} color={theme.text.tertiary} />
+        <SearchInput
+          type="text"
+          placeholder={placeholder && placeholder}
+          name="search"
+        />
+      </SearchBox>
     </form>
   );
 }
