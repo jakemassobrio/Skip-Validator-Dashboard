@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 
 import { PrimaryButton, SecondaryButton } from "./Button.styles";
 
-interface ButtonProps {
+export interface ButtonProps {
   name: string;
   variant: "primary" | "secondary";
   leftIcon?: ReactElement;

@@ -4,7 +4,7 @@ import { CSSProps } from "../../constants";
 
 import { CardWrapper } from "./Card.styles";
 
-interface BoxProps extends CSSProps {
+export interface BoxProps extends CSSProps {
   type: string;
 }
 

@@ -3,18 +3,18 @@ import Button from "../Button";
 import { NavbarBody, NavbarBrand, NavbarNavOption } from "./NavBar.styles";
 import Icon from "../Icon";
 
-enum NavOptions {
+export enum NavOptions {
   Home = "Home",
   GitHub = "GitHub",
   Careers = "Careers",
   Contact = "Contact",
 }
 
-interface URLS {
+export interface URLS {
   [key: string]: string;
 }
 
-const urls: URLS = {
+export const urls: URLS = {
   home: "https://skip.money/",
   github: "https://github.com/skip-mev",
   careers:

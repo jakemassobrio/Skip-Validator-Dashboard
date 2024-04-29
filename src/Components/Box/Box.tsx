@@ -4,7 +4,7 @@ import { BoxCSS } from "./Box.styles";
 
 import { CSSProps } from "../../constants";
 
-interface BoxProps extends CSSProps {
+export interface BoxProps extends CSSProps {
   children: ReactNode;
 }
 

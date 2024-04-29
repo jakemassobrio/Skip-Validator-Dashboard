@@ -5,7 +5,7 @@ import Icon from "../Icon/Icon";
 import { SearchBox, SearchInput } from "./SearchBar.styles";
 import { useTheme } from "@emotion/react";
 
-interface SearchBar {
+export interface SearchBar {
   placeholder?: string;
   onSubmit: () => null | void;
 }
