@@ -26,3 +26,10 @@ export const Search: Story = {
     color: "#ffffff",
   },
 };
+
+export const Payments: Story = {
+  args: {
+    icon: "payments",
+    color: "#ffffff",
+  },
+};

@@ -86,6 +86,10 @@ export const lightTheme: Theme = {
     secondaryHover: "#2c2c2c",
     secondaryText: "#dcdfe1",
     secondaryTextHover: "#ffffff",
+    tertiary: "#1e1e1e",
+    tertiaryHover: "#f3f6f8e5",
+    tertiaryText: "#f3f6f8e5",
+    tertiaryTextHover: "#ffffff",
   },
 };
 
@@ -121,5 +125,9 @@ export const darkTheme: Theme = {
     secondaryHover: "#2c2c2c",
     secondaryText: "#dcdfe1",
     secondaryTextHover: "#ffffff",
+    tertiary: "#1e1e1e",
+    tertiaryHover: "#f3f6f8e5",
+    tertiaryText: "#151617F2",
+    tertiaryTextHover: "#ffffff",
   },
 };

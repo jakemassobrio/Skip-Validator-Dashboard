@@ -18,5 +18,6 @@ export const Primary: Story = {
   args: {
     placeholder: "...Search",
     onSubmit: fn(),
+    advancedSearch: true,
   },
 };

@@ -4,7 +4,7 @@ export const TableTitle = styled.p`
   display: flex;
   align-items: center;
   height: 72px;
-  color: #f3f6f8f2;
+  color: ${(props) => props.theme.text.primary};
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 600;

@@ -2,6 +2,8 @@ import React from "react";
 import Button from "../Button";
 import { NavbarBody, NavbarBrand, NavbarNavOption } from "./NavBar.styles";
 import Icon from "../Icon";
+import { useTheme } from "@emotion/react";
+import Box from "../Box";
 
 export enum NavOptions {
   Home = "Home",
@@ -23,42 +25,40 @@ export const urls: URLS = {
 };
 
 export default function NavBar() {
+  const theme = useTheme();
   return (
     <NavbarBody>
-      <div style={{ display: "flex", alignContent: "center", height: "100%" }}>
+      <Box display="flex" alignContent="center" height="100%">
         <NavbarBrand>Skip / Select</NavbarBrand>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          alignContent: "center",
-          alignItems: "center",
-          height: "100%",
-          gap: "6px",
-        }}
+      </Box>
+      <Box
+        display="flex"
+        alignContent="center"
+        alignItems="center"
+        height="100%"
+        gap="6px"
       >
-        <div
-          style={{
-            marginRight: "94px",
-            display: "flex",
-            alignContent: "center",
-          }}
-        >
+        <Box mr="94px" display="flex" alignContent="center">
           {Object.keys(NavOptions).map((name) => (
             <NavOption name={name} url={urls[name.toLowerCase()]} />
           ))}
-        </div>
+        </Box>
         <Button
           variant="primary"
           name="Sign Up"
-          rightIcon={<Icon icon={"arrow_drop_down"} color={"#151617E5"} />}
+          mr="24px"
+          rightIcon={
+            <Icon icon={"arrow_drop_down"} color={theme.button.primaryText} />
+          }
         />
         <Button
           variant="secondary"
           name="Connect Wallet"
-          rightIcon={<Icon icon={"arrow_drop_down"} color={"#151617E5"} />}
+          rightIcon={
+            <Icon icon={"arrow_drop_down"} color={theme.button.secondaryText} />
+          }
         />
-      </div>
+      </Box>
     </NavbarBody>
   );
 }

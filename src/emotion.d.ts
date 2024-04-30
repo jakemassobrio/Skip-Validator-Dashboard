@@ -33,6 +33,10 @@ declare module "@emotion/react" {
       secondaryHover: string;
       secondaryText: string;
       secondaryTextHover: string;
+      tertiary: string;
+      tertiaryHover: string;
+      tertiaryText: string;
+      tertiaryTextHover: string;
     };
   }
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavBar from "./Components/NavBar";
 import Tabs from "./Components/Tabs";
 import { AppBody, AppDashboardTabs, AppWrapper } from "./App.styles";
+import Box from "./Components/Box";
 import {
   DASHBOARD_OPTIONS,
   CHAINS,
@@ -14,8 +15,9 @@ import Table from "./Components/Table";
 import { useValidatorsAPI } from "./utils";
 import { ThemeProvider } from "@emotion/react";
 
-import { osmosisMockData } from "./fixtures";
+import { osmosisMockData, statisticsMockData } from "./fixtures";
 import SearchBar from "./Components/SearchBar";
+import StatisticsPanel from "./Components/StatisticsPanel/StatisticsPanel";
 
 function App() {
   const validators = useValidatorsAPI();
@@ -32,14 +34,24 @@ function App() {
         <NavBar />
         <AppDashboardTabs>
           <Tabs options={Object.keys(DASHBOARD_OPTIONS)} />
-          <SearchBar placeholder="Search..." onSubmit={() => {}} />
+          <SearchBar
+            placeholder="Search..."
+            onSubmit={() => {}}
+            advancedSearch
+          />
         </AppDashboardTabs>
         <AppBody>
           <Tabs options={Object.keys(CHAINS)} />
-          <Table
-            title="Top MEV Validators on Osmosis"
-            tableData={osmosisMockData}
-          />
+          <Box display="flex" justify="space-between" gap="40px">
+            <Table
+              title="Top MEV Validators on Osmosis"
+              tableData={osmosisMockData}
+            />
+            <StatisticsPanel
+              title="Osmosis Validator Stats"
+              data={statisticsMockData}
+            />
+          </Box>
         </AppBody>
       </AppWrapper>
     </ThemeProvider>

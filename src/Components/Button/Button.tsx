@@ -1,8 +1,9 @@
 import React, { ReactElement } from "react";
 
 import { PrimaryButton, SecondaryButton } from "./Button.styles";
+import { CSSProps } from "../../constants";
 
-export interface ButtonProps {
+export interface ButtonProps extends CSSProps {
   name: string;
   variant: "primary" | "secondary";
   leftIcon?: ReactElement;
@@ -14,15 +15,16 @@ export default function Button({
   variant,
   leftIcon,
   rightIcon,
+  ...rest
 }: ButtonProps) {
   return variant === "primary" ? (
-    <PrimaryButton>
+    <PrimaryButton {...rest}>
       {leftIcon && leftIcon}
       {name}
       {rightIcon && rightIcon}
     </PrimaryButton>
   ) : variant === "secondary" ? (
-    <SecondaryButton>
+    <SecondaryButton {...rest}>
       {leftIcon && leftIcon}
       {name}
       {rightIcon && rightIcon}

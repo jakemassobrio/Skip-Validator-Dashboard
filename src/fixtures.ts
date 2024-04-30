@@ -91,3 +91,9 @@ export const osmosisMockData = [
     bundles: 2000,
   },
 ];
+
+export const statisticsMockData = [
+  { title: "Number of Bundles", value: "8,100" },
+  { title: "MEV captured for delegates", value: "$1.5m" },
+  { title: "Total MEV captured", value: "$1.2m" },
+];

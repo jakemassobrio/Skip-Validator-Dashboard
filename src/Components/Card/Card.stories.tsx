@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Card from "./Card";
+import StatisticsPanel from "../StatisticsPanel/StatisticsPanel";
 
 const meta = {
   title: "Card",
@@ -15,6 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    type: "div",
+    p: "40px",
+    children: <div>Card Content</div>,
   },
 };

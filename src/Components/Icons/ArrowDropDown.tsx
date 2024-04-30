@@ -1,12 +1,14 @@
 import React from "react";
 
-export default function ArrowDropDown({ color }: { color: string }) {
+import { IconObject } from "../Icon";
+
+export default function ArrowDropDown({ color, height, width }: IconObject) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="24px"
+      height={height}
       viewBox="0 0 24 24"
-      width="24px"
+      width={width}
       fill={color}
     >
       <path d="M0 0h24v24H0V0z" fill="none" />

@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
+import { getCSS } from "../../utils";
 
-export const ButtonBase = styled.button`
+import { CSSProps } from "../../constants";
+
+export const ButtonBase = styled.button(
+  (props: CSSProps) => `
   padding: 4px 10px 4px 10px;
   border: none;
   border-radius: 6px;
@@ -14,7 +18,9 @@ export const ButtonBase = styled.button`
   display: flex;
   align-items: center;
   gap: 4px;
-`;
+  ${getCSS({ ...props })};
+`
+);
 
 export const PrimaryButton = styled(ButtonBase)`
   background: ${(props) => props.theme.button.primary};

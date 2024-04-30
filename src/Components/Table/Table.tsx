@@ -63,7 +63,7 @@ export default function Table({
   });
 
   return (
-    <>
+    <Box width="100%">
       <Box display="flex" justify="space-between" alignItems="center">
         <TableTitle>{title}</TableTitle>
         <SearchBar placeholder="Filter" onSubmit={() => {}} />
@@ -113,6 +113,6 @@ export default function Table({
           ))}
         </tfoot>
       </TableBase>
-    </>
+    </Box>
   );
 }

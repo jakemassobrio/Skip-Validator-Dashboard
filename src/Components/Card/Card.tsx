@@ -1,13 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import { CSSProps } from "../../constants";
 
 import { CardWrapper } from "./Card.styles";
 
-export interface BoxProps extends CSSProps {
-  type: string;
+export interface CardProps extends CSSProps {
+  children: ReactNode;
 }
 
-export default function Box({ type, ...rest }: BoxProps) {
-  return <CardWrapper {...rest}></CardWrapper>;
+export default function Card(props: CardProps) {
+  return <CardWrapper {...props} />;
 }
