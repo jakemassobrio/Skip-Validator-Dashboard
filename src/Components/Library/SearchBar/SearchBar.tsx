@@ -5,7 +5,7 @@ import Icon from "../Icon";
 import { SearchBox, SearchInput, KeyboardButton } from "./SearchBar.styles";
 import { useTheme } from "@emotion/react";
 
-import { useDetectOS } from "../../utils";
+import { useDetectOS } from "../../../utils";
 import Box from "../Box";
 
 export interface SearchBar {

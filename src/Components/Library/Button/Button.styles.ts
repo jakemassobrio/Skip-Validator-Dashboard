@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { getCSS } from "../../utils";
+import { getCSS } from "../../../utils";
 
-import { CSSProps } from "../../constants";
+import { CSSProps } from "../../../constants";
 
 export const ButtonBase = styled.button(
   (props: CSSProps) => `

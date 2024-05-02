@@ -1,6 +1,9 @@
 import { Theme } from "@emotion/react";
+import { createColumnHelper } from "@tanstack/react-table";
 
-export enum DASHBOARD_OPTIONS {
+import styled from "@emotion/styled";
+
+export enum PAGES {
   Overview = "Overview",
   Validators = "Validators",
 }
@@ -9,11 +12,22 @@ export enum CHAINS {
   Osmosis = "Osmosis",
   Juno = "Juno",
   CosmosHub = "Cosmos Hub",
+  Evmos = "Evmos",
 }
 
 export enum THEME {
   dark = "dark",
   light = "light",
+}
+
+export const chainAPIValues = {
+  Osmosis: "osmosis",
+  Juno: "juno",
+  "Cosmos Hub": "hub",
+  Evmos: "evmos",
+};
+export interface ValidatorAPIResponse {
+  validator_infos: Validator[];
 }
 
 export interface Validator {
@@ -53,6 +67,7 @@ export interface CSSProps {
   l?: string;
   r?: string;
 }
+/** DEFAULT THEME */
 
 export const lightTheme: Theme = {
   theme: "light",
@@ -131,3 +146,72 @@ export const darkTheme: Theme = {
     tertiaryTextHover: "#ffffff",
   },
 };
+
+/** TABLE COLUMN DEFINITIONS */
+
+export const TableName = styled.span`
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  color: #6398ff;
+`;
+export const TableNameHeader = styled.span`
+  color: #ffffffb3;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+`;
+
+export const TableNumber = styled.span`
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+`;
+
+export const TableNumberHeader = styled.span`
+  color: #ffffffb3;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  width: 100%;
+`;
+
+const columnHelper = createColumnHelper<any>();
+
+export const columns = [
+  columnHelper.accessor((row) => row.rowId, {
+    id: "rowId",
+    header: () => <TableNumberHeader>#</TableNumberHeader>,
+    cell: (info) => <TableNumber>{info.getValue()}</TableNumber>,
+  }),
+  columnHelper.accessor((row) => row.Name, {
+    id: "Name",
+    header: () => <TableNameHeader>Validator</TableNameHeader>,
+    cell: (info) => <TableName>{info.getValue()}</TableName>,
+  }),
+  columnHelper.accessor((row) => row.TotalMEVRevenue, {
+    id: "TotalMEVRevenue",
+    header: () => <TableNumberHeader>MEV Rev. - Total</TableNumberHeader>,
+    cell: (info) => <TableNumber>{info.getValue()}</TableNumber>,
+  }),
+  columnHelper.accessor((row) => row.TotalMEVShared, {
+    id: "TotalMEVShared",
+    header: () => <TableNumberHeader>MEV Rev - Kept</TableNumberHeader>,
+    cell: (info) => <TableNumber>{info.getValue()}</TableNumber>,
+  }),
+  columnHelper.accessor((row) => row.bundles, {
+    id: "bundles",
+    header: () => <TableNumberHeader>Bundles</TableNumberHeader>,
+    cell: (info) => <TableNumber>{info.getValue()}</TableNumber>,
+  }),
+];

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Tabs from "./Tabs";
+import { fn } from "@storybook/test";
 
 const meta = {
   title: "Tabs",
@@ -15,6 +16,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    options: ["option1", "option2"],
+    initialValue: "option 1",
+    options: ["option 1", "option 2"],
+    onClick: fn(),
   },
 };

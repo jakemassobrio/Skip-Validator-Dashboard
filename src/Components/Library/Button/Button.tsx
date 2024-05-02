@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 
 import { PrimaryButton, SecondaryButton } from "./Button.styles";
-import { CSSProps } from "../../constants";
+import { CSSProps } from "../../../constants";
 
 export interface ButtonProps extends CSSProps {
   name: string;

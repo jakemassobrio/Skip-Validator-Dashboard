@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import StatisticsPanel from "./StatisticsPanel";
 
-import { statisticsMockData } from "../../fixtures";
+import { statisticsMockData } from "../../../fixtures";
 
 const meta = {
   title: "StatisticsPanel",

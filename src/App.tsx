@@ -1,58 +1,43 @@
 import React, { useState } from "react";
-import NavBar from "./Components/NavBar";
-import Tabs from "./Components/Tabs";
-import { AppBody, AppDashboardTabs, AppWrapper } from "./App.styles";
-import Box from "./Components/Box";
-import {
-  DASHBOARD_OPTIONS,
-  CHAINS,
-  THEME,
-  darkTheme,
-  lightTheme,
-} from "./constants";
-import Table from "./Components/Table";
+import NavBar from "./Components/Library/NavBar";
+import Tabs from "./Components/Library/Tabs";
+import { AppDashboardTabs, AppWrapper } from "./App.styles";
 
-import { useValidatorsAPI } from "./utils";
+import { PAGES, THEME, darkTheme, lightTheme } from "./constants";
+
 import { ThemeProvider } from "@emotion/react";
 
-import { osmosisMockData, statisticsMockData } from "./fixtures";
-import SearchBar from "./Components/SearchBar";
-import StatisticsPanel from "./Components/StatisticsPanel/StatisticsPanel";
+import SearchBar from "./Components/Library/SearchBar";
+
+import ValidatorDashboard from "./Components/Pages/ValidatorDashboard";
+
+import OverviewPage from "./Components/Pages/NotFound/OverviewPage";
 
 function App() {
-  const validators = useValidatorsAPI();
-  const promise1 = Promise.resolve(validators);
   const [theme, setTheme] = useState<THEME>(THEME.dark);
+  const [page, setPage] = useState(PAGES.Validators);
 
-  promise1.then((value) => {
-    console.log(value);
-  });
+  const handleSetPage = (value: string) => {
+    setPage(value as PAGES);
+  };
 
   return (
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
       <AppWrapper>
         <NavBar />
         <AppDashboardTabs>
-          <Tabs options={Object.keys(DASHBOARD_OPTIONS)} />
+          <Tabs
+            initialValue={page}
+            options={Object.values(PAGES)}
+            onClick={handleSetPage}
+          />
           <SearchBar
             placeholder="Search..."
             onSubmit={() => {}}
             advancedSearch
           />
         </AppDashboardTabs>
-        <AppBody>
-          <Tabs options={Object.keys(CHAINS)} />
-          <Box display="flex" justify="space-between" gap="40px">
-            <Table
-              title="Top MEV Validators on Osmosis"
-              tableData={osmosisMockData}
-            />
-            <StatisticsPanel
-              title="Osmosis Validator Stats"
-              data={statisticsMockData}
-            />
-          </Box>
-        </AppBody>
+        {page === PAGES.Validators ? <ValidatorDashboard /> : <OverviewPage />}
       </AppWrapper>
     </ThemeProvider>
   );

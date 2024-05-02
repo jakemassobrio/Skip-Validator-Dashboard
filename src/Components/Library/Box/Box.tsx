@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 import { BoxCSS } from "./Box.styles";
 
-import { CSSProps } from "../../constants";
+import { CSSProps } from "../../../constants";
 
 export interface BoxProps extends CSSProps {
   children: ReactNode;

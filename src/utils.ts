@@ -1,12 +1,39 @@
-import { Validator, CSSProps } from "./constants";
+import React, { useState, useEffect } from "react";
+
+import { CHAINS, CSSProps } from "./constants";
+import { chainAPIValues } from "./constants";
 
 /** Hooks */
-export const useValidatorsAPI = async (): Promise<Validator[]> => {
-  const response = await fetch(
-    "https://skip-select.s3.amazonaws.com/osmosis/validators.json"
-  );
-  const validators = await response.json();
-  return validators;
+export const getValidatorsAPI = async (chain: string) => {
+  console.log(chain);
+  try {
+    const response = await fetch(
+      `https://skip-select.s3.amazonaws.com/${chain}/validators.json`
+    );
+    const validators = await response.json();
+    console.log(validators);
+    return validators;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const useValidatorData = (chain: CHAINS) => {
+  const [validatorData, setValidatorData] = useState([]);
+
+  useEffect(() => {
+    getValidatorsAPI(chainAPIValues[chain])
+      .then((res) =>
+        res.validator_infos.map((item: any, index: number) => {
+          item.rowId = index;
+          return item;
+        })
+      )
+      .then((res) => setValidatorData(res))
+      .catch((err) => setValidatorData(err));
+  }, [chain]);
+
+  return validatorData;
 };
 
 export const useDetectOS = () => {

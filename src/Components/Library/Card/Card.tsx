@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-import { CSSProps } from "../../constants";
+import { CSSProps } from "../../../constants";
 
 import { CardWrapper } from "./Card.styles";
 
