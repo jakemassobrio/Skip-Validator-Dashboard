@@ -19,6 +19,13 @@ export const NavbarBrand = styled.p`
   color: #ffffff;
 `;
 
+export const NavbarOptions = styled.span`
+  display: block;
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
 export const NavbarNavOption = styled.a`
   padding: 6px 10px;
   margin: auto 0px;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 
 import Icon from "../Icon";
 
@@ -10,27 +10,43 @@ import Box from "../Box";
 
 export interface SearchBar {
   placeholder?: string;
-  onSubmit: () => null | void;
+  value: string;
+  onChange: (value: string) => null | void;
   advancedSearch?: boolean;
 }
 
 export default function SearchBar({
-  onSubmit,
+  onChange,
+  value,
   placeholder,
   advancedSearch = false,
 }: SearchBar) {
+  const [input, setInput] = useState("");
   const theme = useTheme();
 
   const os = useDetectOS();
 
+  useEffect(() => {
+    if (value) {
+      setInput(value);
+    }
+  }, [value]);
+
+  const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+    setInput(event.target.value);
+    onChange(event.target.value);
+  };
+
   return (
-    <form onSubmit={onSubmit}>
+    <form>
       <SearchBox>
         <Icon icon={"search"} color={theme.text.tertiary} />
         <SearchInput
           type="text"
           placeholder={placeholder && placeholder}
-          name="search"
+          id="search"
+          value={input}
+          onChange={handleChangeInput}
         />
         {advancedSearch &&
           (os === "mac" ? (

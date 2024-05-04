@@ -4,7 +4,7 @@ import { PrimaryButton, SecondaryButton } from "./Button.styles";
 import { CSSProps } from "../../../constants";
 
 export interface ButtonProps extends CSSProps {
-  name: string;
+  name?: string;
   variant: "primary" | "secondary";
   leftIcon?: ReactElement;
   rightIcon?: ReactElement;

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { TabsContainer, TabOption } from "./Tabs.styles";
 
+import { useTheme } from "@emotion/react";
+
 export default function Tabs({
   initialValue,
   options,
@@ -11,6 +13,7 @@ export default function Tabs({
   options: string[];
   onClick: (selectedTab: string) => void | null;
 }) {
+  const theme = useTheme();
   const [selectedTab, setSelectedTab] = useState(initialValue);
 
   const handleOnClick = (e: any) => {
@@ -25,6 +28,9 @@ export default function Tabs({
             key={option}
             id={option}
             active={option === selectedTab}
+            activeColor={theme.button.tertiaryTextHover}
+            hoverColor={theme.text.tertiary}
+            textColor={theme.button.tertiaryText}
             onClick={handleOnClick}
           >
             {option}

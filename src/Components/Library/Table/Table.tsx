@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import {
   flexRender,
   getCoreRowModel,
   useReactTable,
+  getFilteredRowModel,
 } from "@tanstack/react-table";
 
 import { NoData, TableTitle, TableBase } from "./Table.styles";
@@ -19,18 +20,32 @@ export default function Table({
   columns: any[];
 }) {
   const data: any[] = useMemo(() => tableData, [tableData]);
+  const [filter, setFilter] = useState("");
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    state: {
+      globalFilter: filter,
+    },
+    onGlobalFilterChange: setFilter,
   });
+
+  const handleSetFilter = (value: string) => {
+    setFilter(value);
+  };
 
   return (
     <Box width="100%">
       <Box display="flex" justify="space-between" alignItems="center">
         <TableTitle>{title}</TableTitle>
-        <SearchBar placeholder="Filter" onSubmit={() => {}} />
+        <SearchBar
+          placeholder="Filter"
+          value={filter}
+          onChange={handleSetFilter}
+        />
       </Box>
 
       <TableBase>

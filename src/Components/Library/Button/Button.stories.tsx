@@ -44,3 +44,10 @@ export const RightIcon: Story = {
     rightIcon: <Icon icon={"arrow_drop_down"} color={"#ffffff"} />,
   },
 };
+
+export const IconButton: Story = {
+  args: {
+    variant: "secondary",
+    rightIcon: <Icon icon={"arrow_drop_down"} color={"#ffffff"} />,
+  },
+};

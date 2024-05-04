@@ -8,16 +8,16 @@ export enum PAGES {
   Validators = "Validators",
 }
 
+export enum THEME {
+  dark = "dark",
+  light = "light",
+}
+
 export enum CHAINS {
   Osmosis = "Osmosis",
   Juno = "Juno",
   CosmosHub = "Cosmos Hub",
   Evmos = "Evmos",
-}
-
-export enum THEME {
-  dark = "dark",
-  light = "light",
 }
 
 export const chainAPIValues = {
@@ -26,6 +26,33 @@ export const chainAPIValues = {
   "Cosmos Hub": "hub",
   Evmos: "evmos",
 };
+
+export const chains = {
+  osmosis: { name: "Osmosis", apiKey: "osmosis" },
+  juno: { name: "Juno", apiKey: "juno" },
+  cosmoshub: { name: "Cosmos Hub", apiKey: "hub" },
+  evmos: { name: "Evmos", apiKey: "evmos" },
+};
+
+export interface NavOptions {
+  [key: string]: NavOption;
+}
+
+export interface NavOption {
+  name: string;
+  url: string;
+}
+
+export const navOptions: NavOptions = {
+  home: { name: "Home", url: "https://skip.money/" },
+  github: { name: "GitHub", url: "https://github.com/skip-mev" },
+  careers: {
+    name: "Careers",
+    url: "https://skip-protocol.notion.site/Skip-Protocol-Open-Positions-a80c9cd99f2247118f89706f07fb563a/",
+  },
+  contact: { name: "Contact", url: "https://ideas.skip.money/" },
+};
+
 export interface ValidatorAPIResponse {
   validator_infos: Validator[];
 }
@@ -67,6 +94,7 @@ export interface CSSProps {
   l?: string;
   r?: string;
 }
+
 /** DEFAULT THEME */
 
 export const lightTheme: Theme = {
@@ -80,31 +108,31 @@ export const lightTheme: Theme = {
     success: "#4caf50",
   },
   text: {
-    primary: "rgba(0, 0, 0, 0.87)",
-    secondary: "rgba(0, 0, 0, 0.54)",
-    tertiary: "rgba(0, 0, 0, 0.34)",
+    primary: "#384248",
+    secondary: "#637288",
+    tertiary: "#4F5A66",
   },
   background: {
     primary: "#ffffff",
     secondary: "#eeeeee",
-    tertiary: "#f3f6f808",
+    tertiary: "#00000017",
   },
   border: {
-    primary: "#f3f6f81a",
+    primary: "#D3D3D3",
   },
   button: {
     primary: "#ffffff",
     primaryHover: "#f3f6f8e5",
-    primaryText: "#151617F2",
+    primaryText: "#384248",
     primaryTextHover: "#ffffff",
     secondary: "#222222",
     secondaryHover: "#2c2c2c",
     secondaryText: "#dcdfe1",
     secondaryTextHover: "#ffffff",
-    tertiary: "#1e1e1e",
+    tertiary: "#00000017",
     tertiaryHover: "#f3f6f8e5",
-    tertiaryText: "#f3f6f8e5",
-    tertiaryTextHover: "#ffffff",
+    tertiaryText: "#959fae",
+    tertiaryTextHover: "#4F5A66",
   },
 };
 
@@ -120,8 +148,8 @@ export const darkTheme: Theme = {
   },
   text: {
     primary: "#f3f6f8f2",
-    secondary: "#f3f6f8b2",
-    tertiary: "#f3f6f880",
+    secondary: "#f3f6f880",
+    tertiary: "#f3f6f8b2",
   },
   background: {
     primary: "#151617",
@@ -142,48 +170,52 @@ export const darkTheme: Theme = {
     secondaryTextHover: "#ffffff",
     tertiary: "#1e1e1e",
     tertiaryHover: "#f3f6f8e5",
-    tertiaryText: "#151617F2",
+    tertiaryText: "#d9d9d9",
     tertiaryTextHover: "#ffffff",
   },
 };
 
 /** TABLE COLUMN DEFINITIONS */
 
-export const TableName = styled.span`
+export const TableName = styled.div`
   font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 20px;
   text-align: left;
   color: #6398ff;
+  padding: 12px 24px;
 `;
-export const TableNameHeader = styled.span`
-  color: #ffffffb3;
+export const TableNameHeader = styled.div`
+  color: ${(props) => props.theme.text.secondary};
   font-family: Inter;
   font-size: 12px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
+  padding: 12px 24px;
 `;
 
-export const TableNumber = styled.span`
+export const TableNumber = styled.div`
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   text-align: center;
-  color: #ffffff;
+  color: ${(props) => props.theme.text.primary};
   width: 100%;
+  padding: 12px 24px;
 `;
 
-export const TableNumberHeader = styled.span`
-  color: #ffffffb3;
+export const TableNumberHeader = styled.div`
+  color: ${(props) => props.theme.text.secondary};
   font-family: Inter;
   font-size: 12px;
   font-weight: 400;
   line-height: 20px;
   text-align: center;
   width: 100%;
+  padding: 12px 24px;
 `;
 
 const columnHelper = createColumnHelper<any>();
@@ -191,26 +223,31 @@ const columnHelper = createColumnHelper<any>();
 export const columns = [
   columnHelper.accessor((row) => row.rowId, {
     id: "rowId",
+    size: 30,
     header: () => <TableNumberHeader>#</TableNumberHeader>,
     cell: (info) => <TableNumber>{info.getValue()}</TableNumber>,
   }),
   columnHelper.accessor((row) => row.Name, {
     id: "Name",
+    size: 30,
     header: () => <TableNameHeader>Validator</TableNameHeader>,
     cell: (info) => <TableName>{info.getValue()}</TableName>,
   }),
   columnHelper.accessor((row) => row.TotalMEVRevenue, {
     id: "TotalMEVRevenue",
+    size: 30,
     header: () => <TableNumberHeader>MEV Rev. - Total</TableNumberHeader>,
     cell: (info) => <TableNumber>{info.getValue()}</TableNumber>,
   }),
   columnHelper.accessor((row) => row.TotalMEVShared, {
     id: "TotalMEVShared",
+    size: 30,
     header: () => <TableNumberHeader>MEV Rev - Kept</TableNumberHeader>,
     cell: (info) => <TableNumber>{info.getValue()}</TableNumber>,
   }),
   columnHelper.accessor((row) => row.bundles, {
     id: "bundles",
+    size: 30,
     header: () => <TableNumberHeader>Bundles</TableNumberHeader>,
     cell: (info) => <TableNumber>{info.getValue()}</TableNumber>,
   }),

@@ -3,6 +3,7 @@ import React from "react";
 import { Title, StatisticName, StatisticValue } from "./StatisticsPanel.styles";
 import Icon from "../Icon";
 import Card from "../Card";
+import { useTheme } from "@emotion/react";
 
 export interface StatisticsObject {
   title: string;
@@ -25,10 +26,18 @@ export default function StatisticsPanel({ title, data }: StatisticsPanelProps) {
   );
 }
 
-const Statistic = ({ title, value }: StatisticsObject) => (
-  <>
-    <Icon height="18px" width="18px" icon={"payments"} color={"#F3F6F8B2"} />
-    <StatisticName>{title}</StatisticName>
-    <StatisticValue>{value}</StatisticValue>
-  </>
-);
+const Statistic = ({ title, value }: StatisticsObject) => {
+  const theme = useTheme();
+  return (
+    <>
+      <Icon
+        height="18px"
+        width="18px"
+        icon={"payments"}
+        color={theme.text.tertiary}
+      />
+      <StatisticName>{title}</StatisticName>
+      <StatisticValue>{value}</StatisticValue>
+    </>
+  );
+};

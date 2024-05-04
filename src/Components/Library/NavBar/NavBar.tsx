@@ -4,27 +4,13 @@ import { NavbarBody, NavbarBrand, NavbarNavOption } from "./NavBar.styles";
 import Icon from "../Icon";
 import { useTheme } from "@emotion/react";
 import Box from "../Box";
+import { NavOptions, NavOption } from "../../../constants";
 
-export enum NavOptions {
-  Home = "Home",
-  GitHub = "GitHub",
-  Careers = "Careers",
-  Contact = "Contact",
+interface NavbarProps {
+  navOptions: NavOptions;
 }
 
-export interface URLS {
-  [key: string]: string;
-}
-
-export const urls: URLS = {
-  home: "https://skip.money/",
-  github: "https://github.com/skip-mev",
-  careers:
-    "https://skip-protocol.notion.site/Skip-Protocol-Open-Positions-a80c9cd99f2247118f89706f07fb563a/",
-  contact: "https://ideas.skip.money/",
-};
-
-export default function NavBar() {
+export default function NavBar({ navOptions }: NavbarProps) {
   const theme = useTheme();
   return (
     <NavbarBody>
@@ -39,8 +25,8 @@ export default function NavBar() {
         gap="6px"
       >
         <Box mr="94px" display="flex" alignContent="center">
-          {Object.keys(NavOptions).map((name) => (
-            <NavOption name={name} url={urls[name.toLowerCase()]} />
+          {Object.values(navOptions).map((navOption) => (
+            <NavbarOption name={navOption.name} url={navOption.url} />
           ))}
         </Box>
         <Button
@@ -63,7 +49,7 @@ export default function NavBar() {
   );
 }
 
-const NavOption = ({ name, url }: { name: string; url: string }) => (
+const NavbarOption = ({ name, url }: NavOption) => (
   <NavbarNavOption href={url} target="_blank">
     {name}
   </NavbarNavOption>

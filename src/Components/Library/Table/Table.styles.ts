@@ -22,7 +22,7 @@ export const TableTitle = styled.p`
 `;
 
 export const TableBase = styled.table`
-  background: #f3f6f808;
+  background: ${(props) => props.theme.background.tertiary};
   padding: 30px 24px;
   border-radius: 8px;
   width: 100%;

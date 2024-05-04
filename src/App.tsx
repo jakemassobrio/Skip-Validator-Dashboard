@@ -12,9 +12,10 @@ import SearchBar from "./Components/Library/SearchBar";
 import ValidatorDashboard from "./Components/Pages/ValidatorDashboard";
 
 import OverviewPage from "./Components/Pages/NotFound/OverviewPage";
+import { navOptions } from "./constants";
 
 function App() {
-  const [theme, setTheme] = useState<THEME>(THEME.dark);
+  const [theme, setTheme] = useState<THEME>(THEME.light);
   const [page, setPage] = useState(PAGES.Validators);
 
   const handleSetPage = (value: string) => {
@@ -24,7 +25,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
       <AppWrapper>
-        <NavBar />
+        <NavBar navOptions={navOptions} />
         <AppDashboardTabs>
           <Tabs
             initialValue={page}
@@ -32,8 +33,9 @@ function App() {
             onClick={handleSetPage}
           />
           <SearchBar
+            value=""
             placeholder="Search..."
-            onSubmit={() => {}}
+            onChange={() => {}}
             advancedSearch
           />
         </AppDashboardTabs>

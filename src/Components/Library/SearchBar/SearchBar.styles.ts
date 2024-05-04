@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const SearchBox = styled.div`
   display: flex;
-  border: 1px solid rgba(0, 0, 0, 0.276);
   padding: 6px;
   align-items: stretch;
   border-radius: 6px;
@@ -11,6 +10,7 @@ export const SearchBox = styled.div`
   max-width: 400px;
   border-width: 1px;
   border-color: ${(props) => props.theme.border.primary};
+  border-style: solid;
 `;
 
 export const SearchInput = styled.input`

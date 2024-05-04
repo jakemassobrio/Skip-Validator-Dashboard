@@ -16,8 +16,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
+    value: "",
     placeholder: "...Search",
-    onSubmit: fn(),
+    onChange: fn(),
     advancedSearch: true,
   },
 };

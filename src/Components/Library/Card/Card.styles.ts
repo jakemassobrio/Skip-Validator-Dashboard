@@ -2,11 +2,19 @@ import styled from "@emotion/styled";
 import { CSSProps } from "../../../constants";
 import { getCSS } from "../../../utils";
 
+import { css } from "@emotion/react";
+
+interface CardWrapperProps extends CSSProps {
+  borderColor: string;
+}
+
 export const CardWrapper = styled.div(
-  (props: CSSProps) => `
+  (props: CardWrapperProps) => `
   color: #ffffff;
   border-radius: 8px;
-  border: 1px solid #F3F6F81A;
+  border-width: 1px;
+  border-color: ${props.borderColor};
+  border-style: solid;
   ${getCSS({ ...props })}
 `
 );
