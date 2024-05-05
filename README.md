@@ -14,6 +14,7 @@ The main thing I try to follow is to conserve to power and flexibility of vanill
 - Write a few more tests
 - Write unit tests for library components
 - Create Icon search in storybook Icon Docs.
+- Improve theme definitions for both light and dark mode.
 
 <br/><br/><br/>
 
