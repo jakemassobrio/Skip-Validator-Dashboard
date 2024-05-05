@@ -88,6 +88,6 @@ Theme definitions should be in the `constants.tsx` file and theme types can be f
 
 Docs: https://tanstack.com/table/latest
 
-Tables are one of those things that can take quite alot of time to buiild from scratch, and well... Tanstack is Tanstack. `react-table` is a headless table UI that solves quite a few problems off the bat like sorting and filtering, and works seamlessly with react.
+Tables are one of those things that can take quite a lot of time to buiild from scratch, and well... Tanstack is Tanstack. `react-table` is a headless table UI that solves quite a few problems off the bat like sorting and filtering, and works seamlessly with react.
 
 <br/><br/><br/>
