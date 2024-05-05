@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Theme } from "@emotion/react";
 
 export const TabsContainer = styled.div`
   display: flex;

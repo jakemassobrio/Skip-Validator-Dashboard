@@ -61,11 +61,11 @@ Storybook will automatically generate basic documentation for each component.
 
 Docs: https://docs.cypress.io/guides/overview/why-cypress
 
-I picked cypress for testing because it is an E2E testing suite with Component Librart testing support. Although the storybook library format is highly compatible with unit tests (and worth doing if time is availalble), E2E testing will always provide you more coverage for less work and therefore ideal for small teams. I wrote two quick tests as a demo, one for the filter, and one for dark/light mode.
+I picked cypress for testing because it is an E2E testing suite with Component Librart testing support. Although the storybook library format is highly compatible with unit tests (and worth doing if time is availalble), E2E testing will always provide you more coverage for less work and therefore ideal for small teams. I wrote a couple of quick tests as a demo.
 
 To run cypress, you will need to run `npm start`. Make sure you are running the app on `localhost:3000`.
 
-You can then run `npx cypress open` to open the cypress interface.
+You can then run `npx cypress open` to open the cypress interface. You will need to select "E2E Testing" and "Chrome" to access the tests.
 
 <br/><br/><br/>
 

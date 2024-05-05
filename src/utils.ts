@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { CHAINS, CSSProps } from "./constants";
 import { chainAPIValues } from "./constants";

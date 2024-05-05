@@ -2,8 +2,6 @@ import styled from "@emotion/styled";
 import { CSSProps } from "../../../constants";
 import { getCSS } from "../../../utils";
 
-import { css } from "@emotion/react";
-
 interface CardWrapperProps extends CSSProps {
   borderColor: string;
 }

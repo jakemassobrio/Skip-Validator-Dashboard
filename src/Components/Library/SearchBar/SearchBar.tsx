@@ -8,7 +8,7 @@ import { useTheme } from "@emotion/react";
 import { useDetectOS } from "../../../utils";
 import Box from "../Box";
 
-export interface SearchBar {
+export interface SearchBarProps {
   testId?: string;
   placeholder?: string;
   value: string;
@@ -22,7 +22,7 @@ export default function SearchBar({
   value,
   placeholder,
   advancedSearch = false,
-}: SearchBar) {
+}: SearchBarProps) {
   const [input, setInput] = useState("");
   const theme = useTheme();
 
