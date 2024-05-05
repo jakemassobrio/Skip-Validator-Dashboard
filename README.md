@@ -7,12 +7,13 @@
 ## Mindset
 
 <br/><br/>
-The main thing I try to follow is to conserve to power and flexibility of vanilla languages, while empowering each languange with modularization. I figured that this would give us best of both worlds. After all, everything is written in vanilla code, so all problems should be solvable from there. With this in mind I try to avoid one-off packages unless they provide us with a solution to a specific problem of a high complexity such as react-table. The menu link urls were sourced from other skip pages I found availalbe online so they are rough estimations on what they should be.
+The main thing I try to follow is to conserve to power and flexibility of vanilla languages, while empowering each languange with modularization. I figured that this would give us best of both worlds. After all, everything is written in vanilla code, so all problems should be solvable from there. With this in mind I try to avoid one-off packages unless they provide us with a solution to a specific problem of a high complexity such as react-table. The menu link urls were sourced from other skip pages I found available online so they are rough estimations on what they should be. If I had more time, my next steps would be:
 
-`1. Make it work`  
-`2. Make it right`  
-`3. Make it fast`  
-`4. Make it scalable`
+- Polish up table component, integrate percentage based table widths so the table doesn't change shape when different data is available.
+- Define media querys with the `Box` component
+- Write a few more tests
+- Write unit tests for library components
+- Create Icon search in storybook Icon Docs.
 
 <br/><br/><br/>
 
