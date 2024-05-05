@@ -23,13 +23,25 @@ export default function Button({
   ...rest
 }: ButtonProps) {
   return variant === "primary" ? (
-    <PrimaryButton {...rest} onClick={onClick} data-cy={testId}>
+    <PrimaryButton
+      {...rest}
+      onClick={onClick}
+      data-cy={testId}
+      pr={name && rightIcon ? "4px" : "10px"}
+      pl={name && leftIcon ? "4px" : "10px"}
+    >
       {leftIcon && leftIcon}
       {name}
       {rightIcon && rightIcon}
     </PrimaryButton>
   ) : variant === "secondary" ? (
-    <SecondaryButton {...rest} onClick={onClick} data-cy={testId}>
+    <SecondaryButton
+      {...rest}
+      onClick={onClick}
+      data-cy={testId}
+      pr={name && rightIcon ? "4px" : "10px"}
+      pl={name && leftIcon ? "4px" : "10px"}
+    >
       {leftIcon && leftIcon}
       {name}
       {rightIcon && rightIcon}

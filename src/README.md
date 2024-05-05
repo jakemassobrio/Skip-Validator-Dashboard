@@ -50,7 +50,8 @@ Docs: https://storybook.js.org/docs/get-started
 
 Storybook was added to modularize UI components and organize a UI Library.
 This encourages us to build standalone UI components that should operate with mock data alone, as well as document use cases for each component.
-Launch storybook with `npm run storybook`.
+Launch storybook with `npm run storybook`. You can find a pretty version of this README in storybook under Docs.
+Storybook will automatically generate basic documentation for each component.
 
 <br/><br/><br/>
 
