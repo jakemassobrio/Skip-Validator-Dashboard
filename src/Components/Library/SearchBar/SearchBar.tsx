@@ -9,6 +9,7 @@ import { useDetectOS } from "../../../utils";
 import Box from "../Box";
 
 export interface SearchBar {
+  testId?: string;
   placeholder?: string;
   value: string;
   onChange: (value: string) => null | void;
@@ -16,6 +17,7 @@ export interface SearchBar {
 }
 
 export default function SearchBar({
+  testId,
   onChange,
   value,
   placeholder,
@@ -44,7 +46,7 @@ export default function SearchBar({
         <SearchInput
           type="text"
           placeholder={placeholder && placeholder}
-          id="search"
+          data-cy={testId}
           value={input}
           onChange={handleChangeInput}
         />

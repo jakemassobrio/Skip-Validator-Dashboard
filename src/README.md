@@ -7,7 +7,13 @@
 ## Mindset
 
 <br/><br/>
-The main thing I try to adhear to is to conserve to power and flexibility of vanilla languages, while empowering each languange with modularization. I figured that this would give us best of both worlds. After all, everything is written in vanilla code, so all problems should be solvable from there. With this in mind I try to avoid one-off packages unless they provide us with a solution to a specific problem of a high complexity such as react-table.
+The main thing I try to follow is to conserve to power and flexibility of vanilla languages, while empowering each languange with modularization. I figured that this would give us best of both worlds. After all, everything is written in vanilla code, so all problems should be solvable from there. With this in mind I try to avoid one-off packages unless they provide us with a solution to a specific problem of a high complexity such as react-table. The menu link urls were sourced from other skip pages I found availalbe online so they are rough estimations on what they should be.
+
+`1. Make it work`  
+`2. Make it right`  
+`3. Make it fast`  
+`4. Make it scalable`
+
 <br/><br/><br/>
 
 ## Stack
@@ -40,6 +46,8 @@ The main thing I try to adhear to is to conserve to power and flexibility of van
 
 <br/><br/>
 
+Docs: https://storybook.js.org/docs/get-started
+
 Storybook was added to modularize UI components and organize a UI Library.
 This encourages us to build standalone UI components that should operate with mock data alone, as well as document use cases for each component.
 Launch storybook with `npm run storybook`.
@@ -49,19 +57,35 @@ Launch storybook with `npm run storybook`.
 ## E2E Testing with Cypress
 
 <br/><br/>
+
+Docs: https://docs.cypress.io/guides/overview/why-cypress
+
+I picked cypress for testing because it is an E2E testing suite with Component Librart testing support. Although the storybook library format is highly compatible with unit tests (and worth doing if time is availalble), E2E testing will always provide you more coverage for less work and therefore ideal for small teams. I wrote two quick tests as a demo, one for the filter, and one for dark/light mode.
+
+To run cypress, you will need to run `npm start`. Make sure you are running the app on `localhost:3000`.
+
+You can then run `npx cypress open` to open the cypress interface.
+
 <br/><br/><br/>
 
 ## Emotion & Theme Provider
 
 <br/><br/>
-<br/><br/><br/>
 
-## getCSS & The Box Component
+Docs: https://emotion.sh/docs/introduction
 
-<br/><br/>
+I use emotion because it allows you to turn css into reusable react components. You can also inherit styles as well as integrate styling within a component. I find it very versatile and great for library building. Check out the `Box` Component and the `getCSS` util function.
+
+Theme definitions should be in the `constants.tsx` file and theme types can be found in the `emotion.d.ts` file. The theme `light` and `dark` theme definitions can be improved, but I put this together quickly for demo purposes. You can change themes with the button at the top right of the UI.
+
 <br/><br/><br/>
 
 ## react-table
 
 <br/><br/>
+
+Docs: https://tanstack.com/table/latest
+
+Tables are one of those things that can take quite alot of time to buiild from scratch, and well... Tanstack is Tanstack. `react-table` is a headless table UI that solves quite a few problems off the bat like sorting and filtering, and works seamlessly with react.
+
 <br/><br/><br/>

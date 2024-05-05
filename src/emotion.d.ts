@@ -1,8 +1,8 @@
 import "@emotion/react";
-
+import { THEME } from "./constants";
 declare module "@emotion/react" {
   export interface Theme {
-    theme: "dark" | "light";
+    theme: THEME;
     colors: {
       primary: string;
       secondary: string;

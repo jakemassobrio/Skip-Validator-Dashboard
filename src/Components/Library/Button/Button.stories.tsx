@@ -19,6 +19,7 @@ export const Primary: Story = {
   args: {
     name: "Sign Up",
     variant: "primary",
+    onClick: fn(),
   },
 };
 
@@ -26,6 +27,7 @@ export const Secondary: Story = {
   args: {
     name: "Sign Up",
     variant: "secondary",
+    onClick: fn(),
   },
 };
 
@@ -34,6 +36,7 @@ export const LeftIcon: Story = {
     name: "Sign Up",
     variant: "secondary",
     leftIcon: <Icon icon={"search"} color={"#ffffff"} />,
+    onClick: fn(),
   },
 };
 
@@ -42,6 +45,7 @@ export const RightIcon: Story = {
     name: "Sign Up",
     variant: "secondary",
     rightIcon: <Icon icon={"arrow_drop_down"} color={"#ffffff"} />,
+    onClick: fn(),
   },
 };
 
@@ -49,5 +53,6 @@ export const IconButton: Story = {
   args: {
     variant: "secondary",
     rightIcon: <Icon icon={"arrow_drop_down"} color={"#ffffff"} />,
+    onClick: fn(),
   },
 };

@@ -15,7 +15,7 @@ import OverviewPage from "./Components/Pages/NotFound/OverviewPage";
 import { navOptions } from "./constants";
 
 function App() {
-  const [theme, setTheme] = useState<THEME>(THEME.light);
+  const [theme, setTheme] = useState<THEME>(THEME.dark);
   const [page, setPage] = useState(PAGES.Validators);
 
   const handleSetPage = (value: string) => {
@@ -23,9 +23,9 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme === THEME.dark ? darkTheme : lightTheme}>
       <AppWrapper>
-        <NavBar navOptions={navOptions} />
+        <NavBar navOptions={navOptions} setTheme={setTheme} />
         <AppDashboardTabs>
           <Tabs
             initialValue={page}

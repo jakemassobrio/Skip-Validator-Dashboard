@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import NavBar from "./NavBar";
 import { navOptions } from "../../../constants";
+import { fn } from "@storybook/test";
 
 const meta = {
   title: "NavBar",
@@ -24,5 +25,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     navOptions: navOptions,
+    setTheme: fn(),
   },
 };

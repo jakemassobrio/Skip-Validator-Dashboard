@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import Box from "../../Library/Box";
+import Card from "../Card";
 
 export const Title = styled.p`
   display: flex;
@@ -10,6 +12,11 @@ export const Title = styled.p`
   font-weight: 600;
   line-height: 20px;
   text-align: left;
+  margin-top: 0px;
+  @media (max-width: 1120px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const StatisticName = styled.p`
@@ -32,4 +39,24 @@ export const StatisticValue = styled.p`
   line-height: 22px;
   text-align: left;
   color: ${(props) => props.theme.text.primary};
+  @media (max-width: 1120px) {
+    margin-bottom: 20px;
+  }
+`;
+
+export const ResponsiveBox = styled(Box)`
+  flex-direction: column;
+  width: 280px;
+  @media (max-width: 1120px) {
+    flex-direction: row;
+    width: 100%;
+  }
+`;
+
+export const StyledCard = styled(Card)`
+  padding: 40px;
+  @media (max-width: 1120px) {
+    margin-top: 32px;
+    padding: 8px;
+  }
 `;

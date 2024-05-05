@@ -1,8 +1,15 @@
 import React from "react";
 
-import { Title, StatisticName, StatisticValue } from "./StatisticsPanel.styles";
+import {
+  Title,
+  StatisticName,
+  StatisticValue,
+  ResponsiveBox,
+  StyledCard,
+} from "./StatisticsPanel.styles";
 import Icon from "../Icon";
-import Card from "../Card";
+
+import Box from "../Box";
 import { useTheme } from "@emotion/react";
 
 export interface StatisticsObject {
@@ -17,19 +24,21 @@ export interface StatisticsPanelProps {
 
 export default function StatisticsPanel({ title, data }: StatisticsPanelProps) {
   return (
-    <Card p={"40px"} width={"320px"}>
+    <StyledCard>
       <Title>{title}</Title>
-      {data.map((statistic) => (
-        <Statistic {...statistic} />
-      ))}
-    </Card>
+      <ResponsiveBox display="flex" justify="space-evenly">
+        {data.map((statistic) => (
+          <Statistic {...statistic} />
+        ))}
+      </ResponsiveBox>
+    </StyledCard>
   );
 }
 
 const Statistic = ({ title, value }: StatisticsObject) => {
   const theme = useTheme();
   return (
-    <>
+    <Box>
       <Icon
         height="18px"
         width="18px"
@@ -38,6 +47,6 @@ const Statistic = ({ title, value }: StatisticsObject) => {
       />
       <StatisticName>{title}</StatisticName>
       <StatisticValue>{value}</StatisticValue>
-    </>
+    </Box>
   );
 };

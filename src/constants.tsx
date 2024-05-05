@@ -98,7 +98,7 @@ export interface CSSProps {
 /** DEFAULT THEME */
 
 export const lightTheme: Theme = {
-  theme: "light",
+  theme: THEME.light,
   colors: {
     primary: "#3f51b5",
     secondary: "#f50057",
@@ -137,7 +137,7 @@ export const lightTheme: Theme = {
 };
 
 export const darkTheme: Theme = {
-  theme: "dark",
+  theme: THEME.dark,
   colors: {
     primary: "#303f9f",
     secondary: "#c51162",
@@ -154,7 +154,7 @@ export const darkTheme: Theme = {
   background: {
     primary: "#151617",
     secondary: "#121213fc",
-    tertiary: "#121213",
+    tertiary: "#F3F6F808",
   },
   border: {
     primary: "#f3f6f81a",
@@ -184,7 +184,7 @@ export const TableName = styled.div`
   line-height: 20px;
   text-align: left;
   color: #6398ff;
-  padding: 12px 24px;
+  padding: 12px 8px 12px 24px;
 `;
 export const TableNameHeader = styled.div`
   color: ${(props) => props.theme.text.secondary};
@@ -193,7 +193,7 @@ export const TableNameHeader = styled.div`
   font-weight: 400;
   line-height: 20px;
   text-align: left;
-  padding: 12px 24px;
+  padding: 12px 8px 12px 24px;
 `;
 
 export const TableNumber = styled.div`
@@ -203,8 +203,7 @@ export const TableNumber = styled.div`
   line-height: 20px;
   text-align: center;
   color: ${(props) => props.theme.text.primary};
-  width: 100%;
-  padding: 12px 24px;
+  padding: 12px 8px 12px 24px;
 `;
 
 export const TableNumberHeader = styled.div`
@@ -214,8 +213,7 @@ export const TableNumberHeader = styled.div`
   font-weight: 400;
   line-height: 20px;
   text-align: center;
-  width: 100%;
-  padding: 12px 24px;
+  padding: 12px 8px 12px 24px;
 `;
 
 const columnHelper = createColumnHelper<any>();

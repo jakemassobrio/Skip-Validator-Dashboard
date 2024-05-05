@@ -77,12 +77,12 @@ export const getCSS = (props: CSSProps) => `
     ${props.pt && `padding-top: ${props.pt}`};
     ${props.pr && `padding-right: ${props.pr}`};
     ${props.pb && `padding-bottom: ${props.pb}`};  
-    ${props.pl && `padding-pl: ${props.pl}`};
+    ${props.pl && `padding-left: ${props.pl}`};
     ${props.m && `margin: ${props.m}`};
     ${props.mt && `margin-top: ${props.mt}`};
     ${props.mr && `margin-right: ${props.mr}`};
     ${props.mb && `margin-bottom: ${props.mb}`};  
-    ${props.ml && `margin-pl: ${props.ml}`};
+    ${props.ml && `margin-left: ${props.ml}`};
     ${props.i && `inset: ${props.i}`};
     ${props.t && `top: ${props.t}`};
     ${props.r && `right: ${props.r}`};

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Box from "../Box";
 
 export const NavbarBody = styled.div`
   padding: 0 100px;
@@ -19,9 +20,9 @@ export const NavbarBrand = styled.p`
   color: #ffffff;
 `;
 
-export const NavbarOptions = styled.span`
+export const ResponsiveBox = styled(Box)`
   display: block;
-  @media (max-width: 600px) {
+  @media (max-width: 1120px) {
     display: none;
   }
 `;
@@ -29,7 +30,7 @@ export const NavbarOptions = styled.span`
 export const NavbarNavOption = styled.a`
   padding: 6px 10px;
   margin: auto 0px;
-  color: ${(props) => props.theme.text.secondary};
+  color: ${(props) => props.theme.text.tertiary};
   font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 500;

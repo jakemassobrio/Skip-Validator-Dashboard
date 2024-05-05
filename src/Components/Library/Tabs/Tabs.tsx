@@ -25,6 +25,7 @@ export default function Tabs({
       {options.map((option: string) => {
         return (
           <TabOption
+            data-cy={option.toLowerCase()}
             key={option}
             id={option}
             active={option === selectedTab}

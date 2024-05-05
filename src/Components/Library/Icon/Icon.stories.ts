@@ -19,6 +19,18 @@ export const ArrowDropDown: Story = {
     color: "#ffffff",
   },
 };
+export const ArrowDropUp: Story = {
+  args: {
+    icon: "arrow_drop_up",
+    color: "#ffffff",
+  },
+};
+export const Sort: Story = {
+  args: {
+    icon: "sort",
+    color: "#ffffff",
+  },
+};
 
 export const Search: Story = {
   args: {
@@ -30,6 +42,20 @@ export const Search: Story = {
 export const Payments: Story = {
   args: {
     icon: "payments",
+    color: "#ffffff",
+  },
+};
+
+export const DarkMode: Story = {
+  args: {
+    icon: "dark_mode",
+    color: "#ffffff",
+  },
+};
+
+export const LightMode: Story = {
+  args: {
+    icon: "light_mode",
     color: "#ffffff",
   },
 };

@@ -3,7 +3,6 @@ import { Theme } from "@emotion/react";
 
 export const TabsContainer = styled.div`
   display: flex;
-  width: 79px;
   height: 32px;
   padding: 6px 10px 6px 0px;
   gap: 10px;
